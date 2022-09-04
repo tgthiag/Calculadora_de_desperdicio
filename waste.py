@@ -22,7 +22,7 @@ class TelaPython:
             [sg.Text("5º jumbo:", size=(20, 0), font=('Any 16')), sg.Input("0", size=(15, 0), key="quinto_puxada")],
             [sg.Text("6º jumbo:", size=(20, 0), font=('Any 16')), sg.Input("0", size=(15, 0), key="sexto_puxada")],
             [sg.Button("Calcular", font=('Any 16')),
-             sg.Text("Desenvolvido por Thiago Carvalho. Versão: 3.1", size=(30, 0), font=('Any 8'))]
+             sg.Text("Desenvolvido por Thiago Carvalho. Versão: 3.2", size=(30, 0), font=('Any 8'))]
         ]
         janela = sg.Window("Calculadora de Waste", layout)
         eventos, valores = janela.Read()
@@ -35,7 +35,7 @@ class TelaPython:
                         medida_folha = 0.0618
                     else:
                         medida_folha = 0.0644
-                    print(medida_folha)
+
                     qtd_embalada = valores["qtd_embalada"]
                     metragem_puxada = valores["metragem_puxada"]
                     metragem_jumbo = valores["metragem_jumbo"]
@@ -45,10 +45,7 @@ class TelaPython:
                     quinto_jumbo = valores["quinto_puxada"]
                     sexto_jumbo = valores["sexto_puxada"]
 
-                    print(metragem_puxada)
-                    print(qtd_embalada, metragem_jumbo, metragem_puxada)
                     metragem_puxada = int(metragem_puxada) + int(segundo_jumbo) + int(terceiro_jumbo) + int(quarto_jumbo) + int(quinto_jumbo) + int(sexto_jumbo)
-                    print(qtd_embalada, metragem_jumbo, metragem_puxada)
                     metragem_emb = float(medida_folha) * float(qtd_embalada)
                     metragem_jumbo = float(metragem_jumbo) * 0.001
                     m2_puxado = float(metragem_jumbo) * float(metragem_puxada)
@@ -80,7 +77,7 @@ class TelaPython:
                 break
 
 
-print("iniciando")
+#Iniciando
 TelaPython()
 #código para criação do executável
 # pyinstaller --onefile -w waste.py
